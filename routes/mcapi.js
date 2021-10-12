@@ -110,7 +110,7 @@ function addDE(atoken) {
         console.log("===========================================================================================================");
 
         console.log("");
-        return;
+        //return;
     });
 
     res.status(200).send('addDE response');
