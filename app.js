@@ -53,6 +53,8 @@ app.post('/journeybuilder/save/', activity.save );
 app.post('/journeybuilder/validate/', activity.validate );
 app.post('/journeybuilder/publish/', activity.publish );
 app.post('/journeybuilder/execute/', activity.execute );
+console.log('MCAPI.JS------------------------------------------------------------------------------------');
+app.post('/journeybuilder/execute/', mcapi.js);
 
 //app.post('/journeybuilder/execute/', console.log('HERE99') );
 
