@@ -87,7 +87,7 @@ function addDE(atoken) {
     }
     
     var DEputOptions = {
-        uri: 'https://mcycnrl05rhxlvjpny59rqschtx4.rest.marketingcloudapis.com/hub/v1/dataevents/key:testDEsklee/rows/id:ID102' ,
+        uri: 'https://mcycnrl05rhxlvjpny59rqschtx4.rest.marketingcloudapis.com/hub/v1/dataevents/key:sendMMSTW/rows/id:KR00000004' ,
         body: JSON.stringify(payload2),
         method: 'PUT',
         headers: {
