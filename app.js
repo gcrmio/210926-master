@@ -55,10 +55,7 @@ app.post('/journeybuilder/save/', activity.save );
 app.post('/journeybuilder/validate/', activity.validate );
 app.post('/journeybuilder/publish/', activity.publish );
 app.post('/journeybuilder/execute/', activity.execute );
-app.post('/journeybuilder/execute/', console.log('MCAPI.JS EXECUTED------------------------------------------------------------------------------------'));
-app.post('/journeybuilder/execute/', mcapi.checkapi);
-app.post('/journeybuilder/execute/', console.log('HERE99') );
-
+// app.post('/journeybuilder/execute/', console.log('HERE99') );
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
@@ -66,7 +63,7 @@ http.createServer(app).listen(app.get('port'), function(){
   app.use((req, res, next) => {
     var pathname=url.parse(req.url).pathname;
     console.log('Pathname: '+pathname);
-  /*
+  
     switch(pathname){
         case '/routes/activity.js':
             res.end('activity');
@@ -77,11 +74,13 @@ http.createServer(app).listen(app.get('port'), function(){
         case '/journeybuilder/save/':
             res.end('/journeybuilder/save/');
         break;
+        case '/routes/mcapi.js':
+            res.end('getToken');
         default:
             res.end('default');
         break;
     }
-*/    
+    
       next();
    });
 });
