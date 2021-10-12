@@ -58,34 +58,35 @@ app.post('/journeybuilder/execute/', activity.execute );
 // app.post('/journeybuilder/execute/', console.log('HERE99') );
 
 http.createServer(app).listen(app.get('port'), function(){
-  console.log('Express server listening on port ' + app.get('port'));
-
-  app.use((req, res, next) => {
-    var pathname=url.parse(req.url).pathname;
-    console.log('Pathname: '+pathname);
+    console.log('Express server listening on port ' + app.get('port'));
   
-    switch(pathname){
-        case '/routes/activity.js':
-            res.end('activity');
-        break;
-        case '/public/js/customActivity.js':
-            res.end('customActivity');
-        break;
-        case '/journeybuilder/save/':
-            res.end('/journeybuilder/save/');
-        break;
-        case '/routes/mcapi.js':
-            res.end('getToken');
-        default:
-            res.end('default');
-        break;
-    }
+    app.use((req, res, next) => {
+      var pathname=url.parse(req.url).pathname;
+      console.log('Pathname: '+pathname);
     
-      next();
-   });
-});
-
-
+      switch(pathname){
+          case '/routes/activity.js':
+              res.end('activity');
+          break;
+          case '/public/js/customActivity.js':
+              res.end('customActivity');
+          break;
+          case '/journeybuilder/save/':
+              res.end('/journeybuilder/save/');
+          break;
+          case '/routes/mcapi/':
+              console.log('mcapi is called ');
+              mcapi.checkapi(req,res);
+              res.end('/routes/mcapi/');
+              break;
+          default:
+              res.end('default');
+          break;
+      }
+      
+        next();
+     });
+  });
 
 /*
 const { Pool, Client } = require('pg');
