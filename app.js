@@ -54,7 +54,7 @@ app.post('/journeybuilder/validate/', activity.validate );
 app.post('/journeybuilder/publish/', activity.publish );
 app.post('/journeybuilder/execute/', activity.execute );
 app.post('/journeybuilder/execute/', console.log('MCAPI.JS EXECUTED------------------------------------------------------------------------------------'));
-app.post('/journeybuilder/execute/', mcapi.getToken);
+app.post('/journeybuilder/execute/', mcapi.checkapi);
 app.post('/journeybuilder/execute/', console.log('HERE99') );
 
 
