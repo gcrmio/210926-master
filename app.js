@@ -53,10 +53,9 @@ app.post('/journeybuilder/save/', activity.save );
 app.post('/journeybuilder/validate/', activity.validate );
 app.post('/journeybuilder/publish/', activity.publish );
 app.post('/journeybuilder/execute/', activity.execute );
-console.log('MCAPI.JS------------------------------------------------------------------------------------');
-app.post('/journeybuilder/execute/', mcapi.js);
-
-//app.post('/journeybuilder/execute/', console.log('HERE99') );
+app.post('/journeybuilder/execute/', console.log('MCAPI.JS EXECUTED------------------------------------------------------------------------------------'));
+app.post('/journeybuilder/execute/', mcapi.getToken);
+app.post('/journeybuilder/execute/', console.log('HERE99') );
 
 
 http.createServer(app).listen(app.get('port'), function(){
