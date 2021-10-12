@@ -1,0 +1,129 @@
+{
+    "workflowApiVersion": "1.1",
+    "metaData": {
+        "icon": "images/icon_mmstw.png",
+        "iconSmall": "images/iconSmall.png",
+        "category": "message"
+    },
+    "type": "REST",
+    "lang": {
+        "en-US": {
+            "name": "mmsTW",
+          "description": "A Template for a custom Journey Builder activity",
+          "step1Label": "Configure Activity"
+        }
+    },
+    "arguments": {
+        "execute": {
+            "inArguments": [
+                {
+                  "email": "{{Contact.Default.EmailAddress}}",
+                  "to": "{{Contact.Attribute.TwilioV1.TwilioNumber}}" 
+                }               
+            ],
+            "outArguments": [],
+            "url": "https://ap-gcrm-mms.herokuapp.com/journeybuilder/execute",
+            "verb": "POST",
+            "body": "",
+            "format": "json",
+            "useJwt": true,
+            "timeout": 10000
+        }
+    },
+    "configurationArguments": {
+      "applicationExtensionKey": "e5a2b753-7426-4764-a41f-4a6c848e53ee",
+       "save": {
+           "url": "https://ap-gcrm-mms.herokuapp.com/journeybuilder/save",
+            "verb": "POST",
+            "body": "",
+            "format": "json",
+            "useJwt": false,
+            "timeout": 10000
+       },
+       "publish": {
+           "url": "https://ap-gcrm-mms.herokuapp.com/journeybuilder/publish",
+            "verb": "POST",
+            "body": "",
+            "format": "json",
+            "useJwt": false,
+            "timeout": 10000
+       },
+       "validate": {
+           "url": "https://ap-gcrm-mms.herokuapp.com/journeybuilder/validate",
+            "verb": "POST",
+            "body": "",
+            "format": "json",
+            "useJwt": false,
+            "timeout": 10000
+       },
+       "stop": {
+           "url": "https://ap-gcrm-mms.herokuapp.com/journeybuilder/stop",
+            "verb": "POST",
+            "body": "",
+            "format": "json",
+            "useJwt": false,
+            "timeout": 10000
+       }
+    },
+    "wizardSteps": [
+       { "label": "Create SMS Message", "key": "step1" }
+    ],
+    "userInterfaces": {
+       "configModal": {
+           "height": 600,
+           "width": 800,
+           "fullscreen": false
+       }
+    },
+    "schema": {
+        "arguments": {
+            "execute": {
+                "inArguments": [
+                    {
+                        "accountSid": {
+                            "dataType": "String",
+                            "isNullable": false,
+                            "direction": "out"   
+                        }
+                    },                    
+                    {
+                        "authToken": {
+                            "dataType": "String",
+                            "isNullable": false,
+                            "direction": "out"   
+                        }
+                    },                    
+                    {
+                        "from": {
+                            "dataType": "String",
+                            "isNullable": true,
+                            "direction": "out"   
+                        }
+                    },                    
+                    {
+                        "to": {
+                            "dataType": "Phone",
+                            "isNullable": false,
+                            "direction": "out"   
+                        }
+                    },
+                    {
+                        "body": {
+                            "dataType": "String",
+                            "isNullable": false,
+                            "direction": "out"   
+                        }
+                    },                    
+                    {
+                        "email": {
+                            "dataType": "Email",
+                            "isNullable": true,
+                            "direction": "out"
+                        }
+                    }
+                ],
+                "outArguments": []
+            }
+        }
+    }
+}
