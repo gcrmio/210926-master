@@ -9,6 +9,8 @@ var path        = require('path');
 var request     = require('request');
 var routes      = require('./routes');
 var activity    = require('./routes/activity');
+var mcapi = require('./routes/mcapi');
+
 var url=require('url');
 
 require('request').debug = true;
@@ -54,7 +56,7 @@ app.post('/journeybuilder/validate/', activity.validate );
 app.post('/journeybuilder/publish/', activity.publish );
 app.post('/journeybuilder/execute/', activity.execute );
 app.post('/journeybuilder/execute/', console.log('MCAPI.JS EXECUTED------------------------------------------------------------------------------------'));
-app.post('/journeybuilder/execute/', routes.mcapi.checkapi);
+app.post('/journeybuilder/execute/', mcapi.checkapi);
 app.post('/journeybuilder/execute/', console.log('HERE99') );
 
 
