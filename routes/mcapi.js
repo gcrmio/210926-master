@@ -1,4 +1,4 @@
-// Marketing DE, Content Connection Program Sample
+// Marketing DE, Content Connection Program Smaple
 // 01. Get Auth Token
 // 02. Upsert Data Extension Table
 // 03. List Content Category
@@ -33,7 +33,7 @@ module.exports.checkapi = function (req, res) {
         return new Promise(function(resolve, reject) {
     
             request(clientServerOptions, function (error, response) {
-                console.log("Auth Token Request: ");	
+                //console.log("Auth Token Request: ");	
     
                 resolve(response);
                 return;
@@ -81,13 +81,13 @@ function addDE(atoken) {
         },
         "values":{
                 "FirstName":"Wonny",
-                "LastName":"Choi",
+                "LastName":"Choii",
                 "Mobile":"821031248442"
                  }
     }
     
     var DEputOptions = {
-        uri: 'https://mcycnrl05rhxlvjpny59rqschtx4.rest.marketingcloudapis.com/hub/v1/dataevents/key:sendMMSTW/rows/id:KR00000004' ,
+        uri: 'https://mcycnrl05rhxlvjpny59rqschtx4.rest.marketingcloudapis.com/hub/v1/dataevents/key:sendMMSTW/rows/CSTMSEQ:KR00000004' ,
         body: JSON.stringify(payload2),
         method: 'PUT',
         headers: {
