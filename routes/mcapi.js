@@ -159,7 +159,7 @@ function loadContentFolder(atoken) {
         console.log("");
 
         
-        //return;
+        return;
     });
     
     res.status(200).send('addDE response');
