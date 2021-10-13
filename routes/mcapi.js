@@ -50,15 +50,15 @@ module.exports.checkapi = function (req, res) {
         console.log("TOKEN = [ "+tmp.access_token+ " ]");
         console.log("===========================================================================================================");
         console.log("");
-
-        addDE(tmp.access_token);
         console.log("111111111111111111111111111111111111111111111111111***********************************************************************************************************");
-        loadContentFolder(tmp.access_token);
+        addDE(tmp.access_token);
         console.log("222222222222222222222222222222222222222222222222222***********************************************************************************************************");
-        loadContentList(tmp.access_token); 
+        loadContentFolder(tmp.access_token);
         console.log("333333333333333333333333333333333333333333333333333***********************************************************************************************************");
-        loadContent(tmp.access_token); 
+        loadContentList(tmp.access_token); 
         console.log("444444444444444444444444444444444444444444444444444***********************************************************************************************************");
+        loadContent(tmp.access_token); 
+        console.log("555555555555555555555555555555555555555555555555555***********************************************************************************************************");
     });
     
     // 01. Get Auth Token
@@ -110,7 +110,7 @@ function addDE(atoken) {
         console.log("===========================================================================================================");
 
         console.log("");
-        return;
+        //return;
     });
 
     res.status(200).send('addDE response');
@@ -159,7 +159,7 @@ function loadContentFolder(atoken) {
         console.log("");
 
         
-        return;
+        //return;
     });
     
     res.status(200).send('addDE response');
@@ -246,7 +246,7 @@ function loadContentList(atoken) {
         console.log("");
 
         
-        return;
+        //return;
     });
     
     res.status(200).send('addDE response');
@@ -304,7 +304,7 @@ function loadContent(atoken) {
 
 
         
-        return;
+        //return;
     });
     
     res.status(200).send('addDE response');
