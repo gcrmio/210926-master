@@ -51,13 +51,9 @@ module.exports.checkapi = function (req, res) {
         console.log("===========================================================================================================");
         console.log("");
         
-        console.log("1111111111111111111111111111111111111111111111111111");
-        //addDE(tmp.access_token);
-        console.log("2222222222222222222222222222222222222222222222222222");
-        //loadContentFolder(tmp.access_token);
-        console.log("3333333333333333333333333333333333333333333333333333");
+        addDE(tmp.access_token);
+        loadContentFolder(tmp.access_token);
         loadContentList(tmp.access_token); 
-        console.log("4444444444444444444444444444444444444444444444444444");
         loadContent(tmp.access_token); 
 
     });
@@ -111,7 +107,7 @@ function addDE(atoken) {
         console.log("===========================================================================================================");
 
         console.log("");
-        return;
+        //return;
     });
 
     res.status(200).send('addDE response');
@@ -160,7 +156,7 @@ function loadContentFolder(atoken) {
         console.log("");
 
         
-        return;
+        //return;
     });
     
     res.status(200).send('addDE response');
@@ -247,7 +243,7 @@ function loadContentList(atoken) {
         console.log("");
 
         
-        return;
+        //return;
     });
     
     res.status(200).send('addDE response');
@@ -305,7 +301,7 @@ function loadContent(atoken) {
 
 
         
-        return;
+        //return;
     });
     
     res.status(200).send('addDE response');
