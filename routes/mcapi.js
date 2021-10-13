@@ -199,7 +199,8 @@ function loadContentList(atoken) {
                         "property": "category.id",
                         "simpleOperator": "equals",
                         //"valueType": "int",
-                        "value": 16254
+                        //"value": 16254
+                        "value": 20471
                     },
             "sort":
             [
