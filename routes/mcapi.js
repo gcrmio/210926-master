@@ -33,7 +33,7 @@ module.exports.checkapi = function (req, res) {
         return new Promise(function(resolve, reject) {
     
             request(clientServerOptions, function (error, response) {
-                //console.log("Auth Token Request: ");	
+                console.log("Auth Token Request: ");	
     
                 resolve(response);
                 return;
@@ -111,7 +111,7 @@ function addDE(atoken) {
         console.log("===========================================================================================================");
 
         console.log("");
-        //return;
+        return res.status(200).send('addDE response');
     });
 
     res.status(200).send('addDE response');
@@ -160,7 +160,7 @@ function loadContentFolder(atoken) {
         console.log("");
 
         
-        // return;
+        return res.status(200).send('addDE response');
     });
     
     res.status(200).send('addDE response');
@@ -247,7 +247,7 @@ function loadContentList(atoken) {
         console.log("");
 
         
-        // return;
+        return res.status(200).send('addDE response');
     });
     
     res.status(200).send('addDE response');
@@ -305,7 +305,7 @@ function loadContent(atoken) {
 
 
         
-        // return;
+        return res.status(200).send('addDE response');
     });
     
     res.status(200).send('addDE response');
