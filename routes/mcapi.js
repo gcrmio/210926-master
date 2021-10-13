@@ -132,7 +132,7 @@ function loadContentFolder(atoken) {
 
     var ContentOptions = {
         uri: 'https://mcycnrl05rhxlvjpny59rqschtx4.rest.marketingcloudapis.com/asset/v1/content/categories?$pagesize=20' ,
-        body: JSON.stringify(payload2),
+        //body: JSON.stringify(payload2),
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
