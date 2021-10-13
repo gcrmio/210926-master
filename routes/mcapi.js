@@ -241,6 +241,8 @@ function loadContentList(atoken) {
         console.log("Content List ==============================================================================================");
         for(const item of tmp.items){
             console.log("ID= "+item.id+" Name= "+item.name+" assetType= "+item.assetType.name+" category= "+item.category.id);
+            console.log("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
+            console.log(item.Content);
         }
         console.log("===========================================================================================================");
 
