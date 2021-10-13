@@ -225,8 +225,8 @@ function loadContentList(atoken) {
             'Content-Type': 'application/json',
             'Authorization': 'Bearer ' + atoken ,
         },
-        client_id: "sswnqzf9ygtn6ekc1usw3pzj",
-        client_secret: "Cp4RDd349USNaDx1GSvRPRJE",
+        client_id: "59x7z62ygf4iduainplpgtrk",
+        client_secret: "QBs7wrzcjKN3HR5cJZKvjzld",
         grant_type: "client_credentials",
         account_id: "526002292"        
     }
