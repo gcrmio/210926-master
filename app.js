@@ -9,7 +9,7 @@ var path        = require('path');
 var request     = require('request');
 var routes      = require('./routes');
 var activity    = require('./routes/activity');
-var de          = require('./routes/de');
+//var de          = require('./routes/de');
 var mcapi       = require('./routes/mcapi');
 var url         = require('url');
 
@@ -81,10 +81,10 @@ http.createServer(app).listen(app.get('port'), function(){
         case '/journeybuilder/save/':
             res.end('/journeybuilder/save/');
         break;
-        case '/de/addDE/':
-            de.addDE(req,res);
-            res.end('/de/addDE/');
-            break;
+//        case '/de/addDE/':
+//            de.addDE(req,res);
+//            res.end('/de/addDE/');
+//            break;
         case '/routes/mcapi/':
             console.log('mcapi is called ');
             mcapi.checkapi(req,res);
@@ -101,7 +101,7 @@ http.createServer(app).listen(app.get('port'), function(){
 
 
 
-
+/*
 const { Pool, Client } = require('pg');
 
 const pool = new Pool({
@@ -112,6 +112,8 @@ const pool = new Pool({
     port: 5432,
     ssl: { rejectUnauthorized: false },
 });
+
+*/
 
 /*
 pool.query('INSERT INTO mms_list VALUES( $1, $2, $3)', ['10','999','MMM'], (err, res) => {
