@@ -50,13 +50,14 @@ module.exports.checkapi = function (req, res) {
         console.log("TOKEN = [ "+tmp.access_token+ " ]");
         console.log("===========================================================================================================");
         console.log("");
-
+        
+        console.log("1111111111111111111111111111111111111111111111111111");
         addDE(tmp.access_token);
-
+        console.log("2222222222222222222222222222222222222222222222222222");
         loadContentFolder(tmp.access_token);
-
+        console.log("3333333333333333333333333333333333333333333333333333");
         loadContentList(tmp.access_token); 
-
+        console.log("4444444444444444444444444444444444444444444444444444");
         loadContent(tmp.access_token); 
 
     });
