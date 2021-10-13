@@ -110,10 +110,11 @@ function addDE(atoken) {
         console.log("===========================================================================================================");
 
         console.log("");
-        //return;
+        return;
     });
 
-    res.status(200).send('addDE response');
+    //res.status(200).send('addDE response');
+    res.send(200, 'addDE');
 };
 
 /*
@@ -162,7 +163,8 @@ function loadContentFolder(atoken) {
         return;
     });
     
-    res.status(200).send('addDE response');
+    //res.status(200).send('addDE response');
+    res.send(200, 'loadContentFolder');
 };
 
 /*
@@ -246,10 +248,11 @@ function loadContentList(atoken) {
         console.log("");
 
         
-        //return;
+        return;
     });
     
-    res.status(200).send('addDE response');
+    //res.status(200).send('addDE response');
+    res.send(200, 'loadContentList');
 };
 
 /*
@@ -304,10 +307,11 @@ function loadContent(atoken) {
 
 
         
-        //return;
+        return;
     });
     
-    res.status(200).send('addDE response');
+    //res.status(200).send('addDE response');
+    res.send(200, 'loadContent');
 };
 
 /*
