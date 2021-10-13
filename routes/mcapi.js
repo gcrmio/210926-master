@@ -50,15 +50,15 @@ module.exports.checkapi = function (req, res) {
         console.log("TOKEN = [ "+tmp.access_token+ " ]");
         console.log("===========================================================================================================");
         console.log("");
-        console.log("111111111111111111111111111111111111111111111111111***********************************************************************************************************");
+
         addDE(tmp.access_token);
-        console.log("222222222222222222222222222222222222222222222222222***********************************************************************************************************");
+
         loadContentFolder(tmp.access_token);
-        console.log("333333333333333333333333333333333333333333333333333***********************************************************************************************************");
+
         loadContentList(tmp.access_token); 
-        console.log("444444444444444444444444444444444444444444444444444***********************************************************************************************************");
+
         loadContent(tmp.access_token); 
-        console.log("555555555555555555555555555555555555555555555555555***********************************************************************************************************");
+
     });
     
     // 01. Get Auth Token
@@ -77,17 +77,17 @@ function addDE(atoken) {
 
     var payload2 = {
         "keys":{
-            "CSTMSEQ":"KR00000004"
+            "CSTMSEQ":"KR00000005"
         },
         "values":{
                 "FirstName":"Wonny",
-                "LastName":"Choiiii",
+                "LastName":"Two",
                 "Mobile":"821031248442"
                  }
     }
     
     var DEputOptions = {
-        uri: 'https://mcycnrl05rhxlvjpny59rqschtx4.rest.marketingcloudapis.com/hub/v1/dataevents/key:06A11BE8-D9E7-4FFD-B7A1-98F0F9F2B747/rows/CSTMSEQ:KR00000004' ,
+        uri: 'https://mcycnrl05rhxlvjpny59rqschtx4.rest.marketingcloudapis.com/hub/v1/dataevents/key:06A11BE8-D9E7-4FFD-B7A1-98F0F9F2B747/rows/id:KR00000005' ,
         body: JSON.stringify(payload2),
         method: 'PUT',
         headers: {
@@ -113,8 +113,7 @@ function addDE(atoken) {
         return;
     });
 
-    //res.status(200).send('addDE response');
-    res.send(200, 'addDE');
+    res.status(200).send('addDE response');
 };
 
 /*
@@ -163,8 +162,7 @@ function loadContentFolder(atoken) {
         return;
     });
     
-    //res.status(200).send('addDE response');
-    res.send(200, 'loadContentFolder');
+    res.status(200).send('addDE response');
 };
 
 /*
@@ -251,8 +249,7 @@ function loadContentList(atoken) {
         return;
     });
     
-    //res.status(200).send('addDE response');
-    res.send(200, 'loadContentList');
+    res.status(200).send('addDE response');
 };
 
 /*
@@ -279,7 +276,7 @@ function loadContent(atoken) {
     
     var ContentOptions = {
         uri: 'https://mcycnrl05rhxlvjpny59rqschtx4.rest.marketingcloudapis.com/asset/v1/content/assets/21089' ,
-        body: JSON.stringify(payload4),
+        //body: JSON.stringify(payload4),
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -310,8 +307,7 @@ function loadContent(atoken) {
         return;
     });
     
-    //res.status(200).send('addDE response');
-    res.send(200, 'loadContent');
+    res.status(200).send('addDE response');
 };
 
 /*

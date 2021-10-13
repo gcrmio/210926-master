@@ -9,21 +9,19 @@ var path        = require('path');
 var request     = require('request');
 var routes      = require('./routes');
 var activity    = require('./routes/activity');
+var de          = require('./routes/de');
 var mcapi       = require('./routes/mcapi');
-
-var url=require('url');
+var url         = require('url');
 
 require('request').debug = true;
-
-console.log('H02');
 
 var app = express();
 
 // Configure Express
 app.set('port', process.env.PORT || 3000);
 
-app.use(bodyParser.raw({type: 'application/jwt'}));
-//app.use(bodyParser.urlencoded({ extended: true }));
+//app.use(bodyParser.raw({type: 'application/jwt'}));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 //app.use(express.methodOverride());
 //app.use(express.favicon());
@@ -35,15 +33,19 @@ if ('development' == app.get('env')) {
   app.use(errorhandler());
 }
 
-console.log('INFLOW START ------------------------------------------------------------------------------');
-
 app.use((req, res, next) => {
-  //console.log('%s', req);
-  console.log('PORT: '+req.PORT);
+  console.log('INFLOW START ------------------------------------------------------------------------------');
+  console.log("HEADER : "+JSON.stringify(req.headers));
+  console.log("URL    : "+req.url);
+  console.log("BODY   : "+JSON.stringify(req.body));
+  console.log("path   : "+req.ip);
+
+  console.log('INFLOW END ------------------------------------------------------------------------------');
+  //console.log('PORT: '+req.PORT);
   next();
  });
 
- console.log('INFLOW END ------------------------------------------------------------------------------');
+ 
 
  // HubExchange Routes
 app.get('/', routes.index );
@@ -55,40 +57,51 @@ app.post('/journeybuilder/save/', activity.save );
 app.post('/journeybuilder/validate/', activity.validate );
 app.post('/journeybuilder/publish/', activity.publish );
 app.post('/journeybuilder/execute/', activity.execute );
-// app.post('/journeybuilder/execute/', console.log('HERE99') );
+
+//app.route('/*').get(function(req, res) { 
+//    return res.sendFile(path.join(__dirname, 'public/index.html')); 
+//});
+
+
 
 http.createServer(app).listen(app.get('port'), function(){
-    console.log('Express server listening on port ' + app.get('port'));
-  
-    app.use((req, res, next) => {
-      var pathname=url.parse(req.url).pathname;
-      console.log('Pathname: '+pathname);
-    
-      switch(pathname){
-          case '/routes/activity.js':
-              res.end('activity');
-          break;
-          case '/public/js/customActivity.js':
-              res.end('customActivity');
-          break;
-          case '/journeybuilder/save/':
-              res.end('/journeybuilder/save/');
-          break;
-          case '/routes/mcapi/':
-              console.log('mcapi is called ');
-              mcapi.checkapi(req,res);
-              res.end('/routes/mcapi/');
-              break;
-          default:
-              res.end('default');
-          break;
-      }
-      
-        next();
-     });
-  });
+  console.log('Express server listening on port ' + app.get('port'));
 
-/*
+  app.use((req, res, next) => {
+    var pathname=url.parse(req.url).pathname;
+    console.log('Pathname: '+pathname);
+  
+    switch(pathname){
+        case '/routes/activity.js':
+            res.end('activity');
+        break;
+        case '/public/js/customActivity.js':
+            res.end('customActivity');
+        break;
+        case '/journeybuilder/save/':
+            res.end('/journeybuilder/save/');
+        break;
+        case '/de/addDE/':
+            de.addDE(req,res);
+            res.end('/de/addDE/');
+            break;
+        case '/routes/mcapi/':
+            console.log('mcapi is called ');
+            mcapi.checkapi(req,res);
+            res.end('/routes/mcapi/');
+            break;
+        default:
+            res.end('default');
+        break;
+    }
+    
+      next();
+   });
+});
+
+
+
+
 const { Pool, Client } = require('pg');
 
 const pool = new Pool({
@@ -99,7 +112,7 @@ const pool = new Pool({
     port: 5432,
     ssl: { rejectUnauthorized: false },
 });
-*/
+
 /*
 pool.query('INSERT INTO mms_list VALUES( $1, $2, $3)', ['10','999','MMM'], (err, res) => {
     console.log(res); // Hello World!
