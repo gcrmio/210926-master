@@ -113,7 +113,8 @@ function addDE(atoken) {
         return;
     });
 
-    res.status(200).send('addDE response');
+    //res.status(200).send('addDE response');
+    response.status(200).send('addDE response');
 };
 
 /*
@@ -162,7 +163,8 @@ function loadContentFolder(atoken) {
         return;
     });
     
-    res.status(200).send('addDE response');
+    //res.status(200).send('addDE response');
+    response.status(200).send('addDE response');
 };
 
 /*
@@ -249,7 +251,8 @@ function loadContentList(atoken) {
         return;
     });
     
-    res.status(200).send('addDE response');
+    //res.status(200).send('addDE response');
+    response.status(200).send('addDE response');
 };
 
 /*
@@ -307,7 +310,8 @@ function loadContent(atoken) {
         return;
     });
     
-    res.status(200).send('addDE response');
+    //res.status(200).send('addDE response');
+    response.status(200).send('addDE response');
 };
 
 /*
