@@ -111,7 +111,6 @@ function addDE(atoken) {
         console.log("===========================================================================================================");
 
         console.log("");
-        res.status(200).send('addDE response');
         //return;
     });
 
@@ -162,7 +161,6 @@ function loadContentFolder(atoken) {
 
         
         // return;
-        res.status(200).send('addDE response');
     });
     
     res.status(200).send('addDE response');
@@ -250,7 +248,6 @@ function loadContentList(atoken) {
 
         
         // return;
-        res.status(200).send('addDE response');
     });
     
     res.status(200).send('addDE response');
@@ -309,7 +306,6 @@ function loadContent(atoken) {
 
         
         // return;
-        res.status(200).send('addDE response');
     });
     
     res.status(200).send('addDE response');
