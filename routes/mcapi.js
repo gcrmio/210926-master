@@ -33,7 +33,7 @@ module.exports.checkapi = function (req, res) {
         return new Promise(function(resolve, reject) {
     
             request(clientServerOptions, function (error, response) {
-                console.log("Auth Token Request: ");	
+                //console.log("Auth Token Request: ");	
     
                 resolve(response);
                 //return;
@@ -50,10 +50,13 @@ module.exports.checkapi = function (req, res) {
         console.log("TOKEN = [ "+tmp.access_token+ " ]");
         console.log("===========================================================================================================");
         console.log("");
-        
+
         addDE(tmp.access_token);
+
         loadContentFolder(tmp.access_token);
+
         loadContentList(tmp.access_token); 
+
         loadContent(tmp.access_token); 
 
     });
@@ -74,17 +77,17 @@ function addDE(atoken) {
 
     var payload2 = {
         "keys":{
-            "CSTMSEQ":"KR00000005"
+            "CSTMSEQ":"KR00000006"
         },
         "values":{
                 "FirstName":"Wonny",
-                "LastName":"Two",
+                "LastName":"Three",
                 "Mobile":"821031248442"
                  }
     }
     
     var DEputOptions = {
-        uri: 'https://mcycnrl05rhxlvjpny59rqschtx4.rest.marketingcloudapis.com/hub/v1/dataevents/key:06A11BE8-D9E7-4FFD-B7A1-98F0F9F2B747/rows/CSTMSEQ:KR00000005' ,
+        uri: 'https://mcycnrl05rhxlvjpny59rqschtx4.rest.marketingcloudapis.com/hub/v1/dataevents/key:testDEsklee/rows/id:ID102' ,
         body: JSON.stringify(payload2),
         method: 'PUT',
         headers: {
@@ -110,7 +113,7 @@ function addDE(atoken) {
         //return;
     });
 
-    res.status(200).send('addDE response');
+    //res.status(200).send('addDE response');
 };
 
 /*
@@ -159,7 +162,7 @@ function loadContentFolder(atoken) {
         //return;
     });
     
-    res.status(200).send('addDE response');
+    //res.status(200).send('addDE response');
 };
 
 /*
@@ -222,8 +225,8 @@ function loadContentList(atoken) {
             'Content-Type': 'application/json',
             'Authorization': 'Bearer ' + atoken ,
         },
-        client_id: "59x7z62ygf4iduainplpgtrk",
-        client_secret: "QBs7wrzcjKN3HR5cJZKvjzld",
+        client_id: "sswnqzf9ygtn6ekc1usw3pzj",
+        client_secret: "Cp4RDd349USNaDx1GSvRPRJE",
         grant_type: "client_credentials",
         account_id: "526002292"        
     }
@@ -246,7 +249,7 @@ function loadContentList(atoken) {
         //return;
     });
     
-    res.status(200).send('addDE response');
+    //res.status(200).send('addDE response');
 };
 
 /*
@@ -304,7 +307,7 @@ function loadContent(atoken) {
         //return;
     });
     
-    res.status(200).send('addDE response');
+    //res.status(200).send('addDE response');
 };
 
 /*
