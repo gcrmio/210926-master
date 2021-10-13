@@ -36,7 +36,7 @@ module.exports.checkapi = function (req, res) {
                 console.log("Auth Token Request: ");	
     
                 resolve(response);
-                return;
+                return response;
             });
         });
     };
@@ -111,7 +111,7 @@ function addDE(atoken) {
         console.log("===========================================================================================================");
 
         console.log("");
-        return;
+        return response;
     });
 
     res.status(200).send('addDE response');
@@ -160,7 +160,7 @@ function loadContentFolder(atoken) {
         console.log("");
 
         
-        return;
+        return response;
     });
     
     res.status(200).send('addDE response');
@@ -247,7 +247,7 @@ function loadContentList(atoken) {
         console.log("");
 
         
-        return;
+        return response;
     });
     
     res.status(200).send('addDE response');
@@ -305,7 +305,7 @@ function loadContent(atoken) {
 
 
         
-        return;
+        return response;
     });
     
     res.status(200).send('addDE response');
