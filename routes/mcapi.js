@@ -36,7 +36,7 @@ module.exports.checkapi = function (req, res) {
                 console.log("Auth Token Request: ");	
     
                 resolve(response);
-                return;
+                //return;
             });
         });
     };
