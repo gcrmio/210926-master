@@ -59,6 +59,7 @@ module.exports.checkapi = function (req, res) {
 
         loadContent(tmp.access_token); 
 
+        loadContentBinary(tmp.access_token);
     });
     
     // 01. Get Auth Token
@@ -326,3 +327,46 @@ function loadContent(atoken) {
 2021-10-10T06:37:11.646398+00:00 app[web.1]: ===========================================================================================================
 
 */
+
+function loadContentBinary(atoken) {
+
+    console.log("[ loadContentBinary called ]");
+
+    var payload4 = {
+    }
+    
+    var ContentOptions = {
+        uri: 'https://mcycnrl05rhxlvjpny59rqschtx4.rest.marketingcloudapis.com/asset/v1/content/assets/21089/file' ,
+        //body: JSON.stringify(payload4),
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + atoken ,
+        },
+        client_id: "59x7z62ygf4iduainplpgtrk",
+        client_secret: "QBs7wrzcjKN3HR5cJZKvjzld",
+        grant_type: "client_credentials",
+        account_id: "526002292"        
+    }
+    
+    request(ContentOptions, function (error, response) {
+        //console.log("ContentOptions: ");	
+        console.log(error,response.body);
+        var tmp = JSON.parse(response.body);
+
+        console.log("Content Binary Info ==============================================================================================");
+        console.log(tmp);
+        console.log("");
+        // console.log(tmp.name);
+        // console.log(tmp.fileProperties.publishedURL);
+
+        // console.log("===========================================================================================================");
+        // console.log("");
+
+
+        
+        //return;
+    });
+    
+    //res.status(200).send('addDE response');
+};
