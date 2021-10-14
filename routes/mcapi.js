@@ -244,6 +244,7 @@ function loadContentList(atoken) {
         console.log("Content List ==============================================================================================");
         for(const item of tmp.items){
             console.log("ID= "+item.id+" Name= "+item.name+" assetType= "+item.assetType.name+" category= "+item.category.id+"\n");
+
             console.log("Content= "+item.content);
         }
         console.log("===========================================================================================================");
@@ -303,7 +304,9 @@ function loadContent(atoken) {
 
         console.log(tmp.name);
         console.log(tmp.fileProperties.publishedURL);
-
+        console.log("Gets the binary file for an asset.")
+        console.log("");
+        console.log(tmp.id);
         console.log("===========================================================================================================");
         console.log("");
 
