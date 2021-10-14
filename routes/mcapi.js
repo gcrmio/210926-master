@@ -51,11 +51,11 @@ module.exports.checkapi = function (req, res) {
         console.log("===========================================================================================================");
         console.log("");
 
-        addDE(tmp.access_token);
+        //addDE(tmp.access_token);
 
-        loadContentFolder(tmp.access_token);
+        //loadContentFolder(tmp.access_token);
 
-        loadContentList(tmp.access_token); 
+        //loadContentList(tmp.access_token); 
 
         loadContent(tmp.access_token); 
 
