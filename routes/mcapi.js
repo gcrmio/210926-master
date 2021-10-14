@@ -55,7 +55,7 @@ module.exports.checkapi = function (req, res) {
 
         //loadContentFolder(tmp.access_token);
 
-        //loadContentList(tmp.access_token); 
+        loadContentList(tmp.access_token); 
 
         loadContent(tmp.access_token); 
 
