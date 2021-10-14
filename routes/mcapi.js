@@ -282,7 +282,7 @@ function loadContent(atoken) {
     }
     
     var ContentOptions = {
-        uri: 'https://mcycnrl05rhxlvjpny59rqschtx4.rest.marketingcloudapis.com/asset/v1/content/assets/21089' ,
+        uri: 'https://mcycnrl05rhxlvjpny59rqschtx4.rest.marketingcloudapis.com/asset/v1/content/assets/21728' ,
         //body: JSON.stringify(payload4),
         method: 'GET',
         headers: {
@@ -336,7 +336,7 @@ function loadContentBinary(atoken) {
     }
     
     var ContentOptions = {
-        uri: 'https://mcycnrl05rhxlvjpny59rqschtx4.rest.marketingcloudapis.com/asset/v1/content/assets/21089/file' ,
+        uri: 'https://mcycnrl05rhxlvjpny59rqschtx4.rest.marketingcloudapis.com/asset/v1/content/assets/21728/file' ,
         //body: JSON.stringify(payload4),
         method: 'GET',
         headers: {
