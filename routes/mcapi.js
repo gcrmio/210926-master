@@ -336,7 +336,7 @@ function loadContentBinary(atoken) {
     }
     
     var ContentOptions = {
-        uri: 'https://mcycnrl05rhxlvjpny59rqschtx4.rest.marketingcloudapis.com/asset/v1/content/assets/21944/file' ,
+        uri: 'https://mcycnrl05rhxlvjpny59rqschtx4.rest.marketingcloudapis.com/asset/v1/content/assets/21945/file' ,
         //body: JSON.stringify(payload4),
         method: 'GET',
         headers: {
@@ -356,12 +356,12 @@ function loadContentBinary(atoken) {
 
         console.log("Content Binary Info ==============================================================================================");
         console.log(tmp);
-        console.log("");
+        
         // console.log(tmp.name);
         // console.log(tmp.fileProperties.publishedURL);
 
-        // console.log("===========================================================================================================");
-        // console.log("");
+        console.log("===========================================================================================================");
+        console.log("");
 
 
         
