@@ -355,7 +355,7 @@ function loadContentBinary(atoken) {
         var tmp = JSON.parse(response.body);
 
         console.log("Content Binary Info ==============================================================================================");
-        console.log(tmp);
+        console.log(tmp.id);
         console.log("");
         // console.log(tmp.name);
         // console.log(tmp.fileProperties.publishedURL);
