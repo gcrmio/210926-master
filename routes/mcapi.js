@@ -339,7 +339,7 @@ function loadContentBinary(atoken) {
     }
     
     var ContentOptions = {
-        uri: 'https://mcycnrl05rhxlvjpny59rqschtx4.rest.marketingcloudapis.com/asset/v1/content/assets/21945/file' ,
+        uri: 'https://mcycnrl05rhxlvjpny59rqschtx4.rest.marketingcloudapis.com/asset/v1/content/assets/21944/file' ,
         //body: JSON.stringify(payload4),
         method: 'GET',
         headers: {
