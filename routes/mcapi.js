@@ -299,14 +299,15 @@ function loadContent(atoken) {
         console.log(error,response.body);
         var tmp = JSON.parse(response.body);
 
+        console.log("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+        console.log(tmp);
+        console.log("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
         console.log("");
         console.log("Content Info ==============================================================================================");
 
         console.log(tmp.name);
         console.log(tmp.fileProperties.publishedURL);
-        console.log("Gets the binary file for an asset.")
-        console.log("");
-        console.log(tmp.id);
+
         console.log("===========================================================================================================");
         console.log("");
 
