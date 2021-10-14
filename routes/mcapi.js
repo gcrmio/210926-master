@@ -243,7 +243,8 @@ function loadContentList(atoken) {
         console.log("");
         console.log("Content List ==============================================================================================");
         for(const item of tmp.items){
-            console.log("ID= "+item.id+" Name= "+item.name+" assetType= "+item.assetType.name+" category= "+item.category.id);
+            console.log("ID= "+item.id+" Name= "+item.name+" assetType= "+item.assetType.name+" category= "+item.category.id+"\n");
+            console.log("Content= "+item.content);
         }
         console.log("===========================================================================================================");
 
