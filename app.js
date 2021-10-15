@@ -12,6 +12,8 @@ var activity    = require('./routes/activity');
 //var de          = require('./routes/de');
 var mcapi       = require('./routes/mcapi');
 var url         = require('url');
+// added 2021-10-15 for file upload from local pc
+var formidable = require('formidable');
 
 require('request').debug = true;
 
@@ -62,6 +64,23 @@ app.post('/journeybuilder/execute/', activity.execute );
 //    return res.sendFile(path.join(__dirname, 'public/index.html')); 
 //});
 
+// added 2021-10-15 for file upload from local pc
+app.get('/', function(req, res){
+    res.sendFile(__dirname + '/index.html');
+});
+app.post('/', function (req, res){
+    var form = new formidable.IncomingForm();
+
+    form.parse(req);
+
+    form.on('fileBegin', function(name, file){
+        file.path = __dirname + '/uploads/' + file.name;
+    });
+    form.on('file', function(name, file){
+        console.log('Uploaded ' + file.name);
+    });
+    res.sendFile(__dirname + '/index.html');
+});
 
 
 http.createServer(app).listen(app.get('port'), function(){
