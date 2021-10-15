@@ -24,7 +24,8 @@ module.exports.checkapi = function (req, res) {
         body: JSON.stringify(payload),
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'charset':'utf-8'
         }
     };
     
@@ -94,6 +95,7 @@ function addDE(atoken) {
         headers: {
             'Content-Type': 'application/json',
             'Authorization': 'Bearer ' + atoken ,
+            'charset':'utf-8'
         },
         client_id: "59x7z62ygf4iduainplpgtrk",
         client_secret: "QBs7wrzcjKN3HR5cJZKvjzld",
@@ -138,6 +140,7 @@ function loadContentFolder(atoken) {
         headers: {
             'Content-Type': 'application/json',
             'Authorization': 'Bearer ' + atoken ,
+            'charset':'utf-8'
         },
         client_id: "59x7z62ygf4iduainplpgtrk",
         client_secret: "QBs7wrzcjKN3HR5cJZKvjzld",
@@ -226,6 +229,7 @@ function loadContentList(atoken) {
         headers: {
             'Content-Type': 'application/json',
             'Authorization': 'Bearer ' + atoken ,
+            'charset':'utf-8'
         },
         client_id: "59x7z62ygf4iduainplpgtrk",
         client_secret: "QBs7wrzcjKN3HR5cJZKvjzld",
@@ -288,6 +292,7 @@ function loadContent(atoken) {
         headers: {
             'Content-Type': 'application/json',
             'Authorization': 'Bearer ' + atoken ,
+            'charset':'utf-8'
         },
         client_id: "59x7z62ygf4iduainplpgtrk",
         client_secret: "QBs7wrzcjKN3HR5cJZKvjzld",
@@ -345,6 +350,7 @@ function loadContentBinary(atoken) {
         headers: {
             'Content-Type': 'application/json',
             'Authorization': 'Bearer ' + atoken ,
+            'charset':'utf-8'
         },
         client_id: "59x7z62ygf4iduainplpgtrk",
         client_secret: "QBs7wrzcjKN3HR5cJZKvjzld",
