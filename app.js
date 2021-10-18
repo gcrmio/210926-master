@@ -78,7 +78,7 @@ var upload = multer({storage: storage});
 
 app.use('/upload', express.static('upload'));
 
-app.post('/upload', upload.single('uploadFile'), function(req, res, next){
+app.post('/upload', upload.single('file'), function(req, res, next){
     console.log(JSON.stringify(req.file));
     res.send(req.file, pathname);
 });
