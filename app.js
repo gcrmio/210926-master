@@ -12,8 +12,15 @@ var activity    = require('./routes/activity');
 //var de          = require('./routes/de');
 var mcapi       = require('./routes/mcapi');
 var url         = require('url');
-// added 2021-10-18 for file upload from local pc
-var multer = require('multer');
+// var multer = require('multer'); added 2021-10-18 for file upload from local pc
+const multerS3 = require('multer-s3');
+const AWS = require('aws-sdk');
+
+AWS.config.update({
+    accessKeyId: process.env.S3_ACCESS_KEY_ID,
+    secretAccessKey: process.env.S3_SECRET_ACCESS_KEY,
+    region: 'us-east-1',
+});
 
 require('request').debug = true;
 
@@ -47,8 +54,6 @@ app.use((req, res, next) => {
   next();
  });
 
- 
-
  // HubExchange Routes
 app.get('/', routes.index );
 app.post('/login', routes.login );
@@ -64,7 +69,10 @@ app.post('/journeybuilder/execute/', activity.execute );
 //    return res.sendFile(path.join(__dirname, 'public/index.html')); 
 //});
 
-// added 2021-10-18 for file upload from local pc
+/* 
+
+added 2021-10-18 for file upload from local pc
+
 var storage = multer.diskStorage({
     destination: function(req, file, cb){
         cb(null, '/upload');
@@ -87,7 +95,26 @@ app.post('/upload', upload.single('file'), function(req, res, next){
     // console.log('===== PATHNAME ' + pathname);
 });
 
+*/
 
+const upload = multer({
+    storage: multerS3({
+      s3: new AWS.S3(),
+      bucket: 'sftptg-prod-us-east-1-d6b3b13e-95fa-413a-a8a3-ff1df49c5b27',
+      key(req, file, cb) {
+        cb(null, 'APPS/TEST/MMSTW/${Date.now()}_${path.basename(file.originalname)}');
+      },
+    }),
+    limits: { fileSize: 20 * 1024 * 1024 },
+  });
+
+  app.post('/upload', upload.single('file'), function(req, res, next){
+      console.log(JSON.stringify(req.file));
+      res.send(req.file);
+      // console.log('===== REQFILE ' + req.file);
+      // console.log('===== PATHNAME ' + pathname);
+  });
+  
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
 
@@ -114,9 +141,9 @@ http.createServer(app).listen(app.get('port'), function(){
             mcapi.checkapi(req,res);
             res.end('/routes/mcapi/');
             break;
-        case '/upload/':
-            res.sendFile('/upload');
-            break;
+        // case '/upload/':
+        //     res.sendFile('/upload');
+        //     break;
         default:
             res.end('default');
         break;
