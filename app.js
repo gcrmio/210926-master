@@ -81,6 +81,8 @@ app.use('/upload', express.static('upload'));
 app.post('/upload', upload.single('file'), function(req, res, next){
     console.log(JSON.stringify(req.file));
     res.send(req.file, pathname);
+    console.log('===== REQFILE ' + req.file);
+    console.log('===== PATHNAME ' + pathname);
 });
 
 
