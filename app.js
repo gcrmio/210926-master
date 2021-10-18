@@ -65,14 +65,17 @@ app.post('/journeybuilder/execute/', activity.execute );
 //});
 
 // added 2021-10-18 for file upload from local pc
+
+
 var storage = multer.diskStorage({
-    destination: function(req, file, cb){
-        cb(null, './upload')
-    },
+    // destination: function(req, file, cb){
+    //     cb(null, './upload')
+    // },
     filename: function(req, file, cb){
         cb(null, Date.now()+file.originalname)
     }
 });
+
 
 var upload = multer({storage: storage});
 
@@ -112,8 +115,6 @@ http.createServer(app).listen(app.get('port'), function(){
             mcapi.checkapi(req,res);
             res.end('/routes/mcapi/');
             break;
-        case '/upload':
-            res.end('/upload');
         default:
             res.end('default');
         break;
