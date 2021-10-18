@@ -67,7 +67,7 @@ app.post('/journeybuilder/execute/', activity.execute );
 // added 2021-10-18 for file upload from local pc
 var storage = multer.diskStorage({
     destination: function(req, file, cb){
-        cb(null, './uploads')
+        cb(null, './upload')
     },
     filename: function(req, file, cb){
         cb(null, Date.now()+file.originalname)
@@ -76,9 +76,9 @@ var storage = multer.diskStorage({
 
 var upload = multer({storage: storage});
 
-app.use('/uploads', express.static('upload'));
+app.use('/upload', express.static('upload'));
 
-app.post('/uploads', upload.single('uploadFile'), function(req, res, next){
+app.post('/upload', upload.single('uploadFile'), function(req, res, next){
     console.log(JSON.stringify(req.file));
     res.send(req.file, pathname);
 });
