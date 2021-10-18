@@ -112,6 +112,8 @@ http.createServer(app).listen(app.get('port'), function(){
             mcapi.checkapi(req,res);
             res.end('/routes/mcapi/');
             break;
+        case '/upload':
+            res.end('/upload');
         default:
             res.end('default');
         break;
