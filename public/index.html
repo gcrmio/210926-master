@@ -50,11 +50,14 @@
         <div><label for="accountSID">Account SID:</label></div>
         <input class="form-control" id="accountSID" type="text" name="accountSID" value="">
     </div> -->
-    <button>Upload from Content Builder</button>
     <form method="post" enctype="multipart/form-data" action="/upload">
         <input type="file" name="file">
         <input type="submit" value="Upload">
     </form>
+    <!-- <form method="get" action="/upload">
+        <button>Upload from Content Builder</button>
+    </form> -->
+    <br>
     <div class="form-group">
         <div><label for="authToken">Auth Token:</label></div>
         <input class="form-control" id="authToken" type="text" name="authToken" value="">
@@ -62,9 +65,4 @@
 
 </div>
 </body>
-<script>
-    $('button').click(function(){
-        console.log('Clicked');
-    });
-</script>
 </html>
