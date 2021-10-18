@@ -12,8 +12,8 @@ var activity    = require('./routes/activity');
 //var de          = require('./routes/de');
 var mcapi       = require('./routes/mcapi');
 var url         = require('url');
-// added 2021-10-15 for file upload from local pc
-var formidable = require('formidable');
+// added 2021-10-18 for file upload from local pc
+var multer = require('multer');
 
 require('request').debug = true;
 
@@ -64,22 +64,24 @@ app.post('/journeybuilder/execute/', activity.execute );
 //    return res.sendFile(path.join(__dirname, 'public/index.html')); 
 //});
 
-// added 2021-10-15 for file upload from local pc
-app.get('/', function(req, res){
-    res.sendFile(__dirname + '/index.html');
+// added 2021-10-18 for file upload from local pc
+var storage = multer.diskStorage({
+    destination: function(req, file, cb){
+        cb(null, './uploads')
+    },
+    filename: function(req, file, cb){
+        cb(null, file.originalname)
+    }
 });
-app.post('/', function (req, res){
-    var form = new formidable.IncomingForm();
 
-    form.parse(req);
+var upload = multer({storage: storage});
 
-    form.on('fileBegin', function(name, file){
-        file.path = __dirname + '/uploads/' + file.name;
-    });
-    form.on('file', function(name, file){
-        console.log('Uploaded ' + file.name);
-    });
-    res.sendFile(__dirname + '/index.html');
+app.use(express.static(__dirname + '/public'));
+app.use('/uploads', express.static('uploads'));
+
+app.post('/uploads', function(req, res, next){
+    console.log(JSON.stringify(req.file));
+    return res.send(response);
 });
 
 
