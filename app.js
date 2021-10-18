@@ -65,8 +65,6 @@ app.post('/journeybuilder/execute/', activity.execute );
 //});
 
 // added 2021-10-18 for file upload from local pc
-
-
 var storage = multer.diskStorage({
     destination: function(req, file, cb){
         cb(null, 'upload/');
