@@ -50,6 +50,7 @@
         <div><label for="accountSID">Account SID:</label></div>
         <input class="form-control" id="accountSID" type="text" name="accountSID" value="">
     </div> -->
+    <button>Upload from Content Builder</button>
     <form method="post" enctype="multipart/form-data" action="/upload">
         <input type="file" name="file">
         <input type="submit" value="Upload">
@@ -61,4 +62,9 @@
 
 </div>
 </body>
+<script>
+    $('button').click(function(){
+        console.log('Clicked');
+    });
+</script>
 </html>
