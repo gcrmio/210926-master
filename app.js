@@ -12,7 +12,8 @@ var activity    = require('./routes/activity');
 //var de          = require('./routes/de');
 var mcapi       = require('./routes/mcapi');
 var url         = require('url');
-// var multer = require('multer'); added 2021-10-18 for file upload from local pc
+var multer = require('multer');
+
 const multerS3 = require('multer-s3');
 const AWS = require('aws-sdk');
 
@@ -114,7 +115,7 @@ const upload = multer({
       // console.log('===== REQFILE ' + req.file);
       // console.log('===== PATHNAME ' + pathname);
   });
-  
+
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
 
