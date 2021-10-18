@@ -69,7 +69,7 @@ app.post('/journeybuilder/execute/', activity.execute );
 
 var storage = multer.diskStorage({
     destination: function(req, file, cb){
-        cb(null, '/upload')
+        cb(null, './public/upload')
     },
     filename: function(req, file, cb){
         cb(null, Date.now()+file.originalname)
@@ -80,7 +80,7 @@ var storage = multer.diskStorage({
 var upload = multer({storage: storage});
 
 // app.use('/upload', express.static('upload'));
-app.use('/upload', express.static(path.join(__dirname, 'upload')));
+// app.use('/upload', express.static(path.join(__dirname, 'upload')));
 
 app.post('/upload', upload.single('file'), function(req, res, next){
     console.log(JSON.stringify(req.file));
