@@ -103,7 +103,7 @@ const upload = multer({
       s3: new AWS.S3(),
       bucket: 'sftptg-prod-us-east-1-d6b3b13e-95fa-413a-a8a3-ff1df49c5b27',
       key(req, file, cb) {
-        cb(null, 'APPS/TEST/MMSTW/${Date.now()}_${path.basename(file.originalname)}');
+        cb(null, 'APPS/TEST/MMSTW/Date.now() + "-" + file.originalname}');
       },
     }),
     limits: { fileSize: 20 * 1024 * 1024 },
