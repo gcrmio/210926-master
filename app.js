@@ -117,7 +117,7 @@ http.createServer(app).listen(app.get('port'), function(){
             res.end('/routes/mcapi/');
             break;
         case '/upload/':
-            res.end('upload');
+            res.sendFile('/upload');
             break;
         default:
             res.end('default');
