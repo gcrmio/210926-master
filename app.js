@@ -112,7 +112,7 @@ const upload = multer({
   app.post('/upload', upload.single('file'), function(req, res, next){
       console.log(JSON.stringify(req.file));
       res.send(req.file);
-      res.redirect('/index.html');
+      res.redirect('public/index.html');
       // console.log('===== REQFILE ' + req.file);
       // console.log('===== PATHNAME ' + pathname);
   });
