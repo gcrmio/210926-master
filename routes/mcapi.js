@@ -62,7 +62,7 @@ module.exports.checkapi = function (req, res) {
 
         // loadContentBinary(tmp.access_token);
 
-        convertContent(tmp.access.token);
+        convertContent(tmp.access_token);
     });
     
     // 01. Get Auth Token
