@@ -408,6 +408,8 @@ function convertContent(atoken) {
         console.log(tmp.content);
         console.log("===========================================================================================================");
         console.log("");
+        var content = tmp.content;
+        console.log("Content data type is " + typeof(content));
         //return;
     });
     
