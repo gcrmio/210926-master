@@ -66,16 +66,8 @@ define([
         $.each(inArguments, function (index, inArgument) {
             $.each(inArgument, function (key, val) {
 
-                if (key === 'accountSid') {
-                    $('#accountSID').val(val);
-                }
-
-                if (key === 'authToken') {
-                    $('#authToken').val(val);
-                }
-
-                if (key === 'messagingService') {
-                    $('#messagingService').val(val);
+                if (key === 'messageSubject') {
+                    $('#messageSubject').val(val);
                 }
 
                 if (key === 'body') {
@@ -106,15 +98,11 @@ define([
 
     function save() {
 
-        var accountSid = $('#accountSID').val();
-        var authToken = $('#authToken').val();
-        var messagingService = $('#messagingService').val();
+        var messageSubject = $('#messageSubject').val();
         var body = $('#messageBody').val();
 
         payload['arguments'].execute.inArguments = [{
-            "accountSid": accountSid,
-            "authToken": authToken,
-            "messagingService": messagingService,
+            "messageSubject": messageSubject,
             "body" : body,
             "CSTMSEQ" : "{{Event."+eventDefinitionKey+".CSTMSEQ}}",
             "First Name" : "{{Event."+eventDefinitionKey+".FirstName}}",
