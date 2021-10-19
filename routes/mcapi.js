@@ -8,8 +8,6 @@
 "use strict";
 
 var request = require('request');
-const nodeHtmlToImage = require('node-html-to-image');
-
 // ----------------------------------------------------------------------------------------------------
 
 module.exports.checkapi = function (req, res) {
