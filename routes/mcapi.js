@@ -58,7 +58,7 @@ module.exports.checkapi = function (req, res) {
 
         // loadContentList(tmp.access_token); 
 
-        loadContent(tmp.access_token); 
+        //loadContent(tmp.access_token); 
 
         // loadContentBinary(tmp.access_token);
 
@@ -403,20 +403,11 @@ function convertContent(atoken) {
         console.log(error,response.body);
         var tmp = JSON.parse(response.body);
 
-        console.log("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
         console.log(tmp);
-        console.log("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
-        console.log("");
         console.log("Content Info ==============================================================================================");
-
-        console.log(tmp.name);
-        console.log(tmp.fileProperties.publishedURL);
-
+        console.log(tmp.Content);
         console.log("===========================================================================================================");
         console.log("");
-
-
-        
         //return;
     });
     
