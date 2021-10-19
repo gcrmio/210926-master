@@ -8,6 +8,7 @@
 "use strict";
 
 var request = require('request');
+const nodeHtmlToImage = require('node-html-to-image');
 
 // ----------------------------------------------------------------------------------------------------
 
@@ -409,7 +410,12 @@ function convertContent(atoken) {
         console.log("===========================================================================================================");
         console.log("");
         var content = '<html>'+tmp.content+'</html>';
-        console.log(content);
+
+        nodeHtmlToImage({
+            output: './image.jpeg',
+            html: content
+        })
+        .then(() => console.log('The image was created successfully!'));
         //return;
     });
     
