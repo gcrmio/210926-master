@@ -20,7 +20,7 @@ define([
     connection.on('requestedEndpoints', onGetEndpoints);
 
     connection.on('clickedNext', save);
-    //connection.on('clickedBack', onClickedBack);
+    //connection.on('clickedBack', onClickedBack); 
     //connection.on('gotoStep', onGotoStep);
 
     var eventDefinitionKey;
@@ -66,8 +66,16 @@ define([
         $.each(inArguments, function (index, inArgument) {
             $.each(inArgument, function (key, val) {
 
-                if (key === 'messageSubject') {
-                    $('#messageSubject').val(val);
+                if (key === 'accountSid') {
+                    $('#accountSID').val(val);
+                }
+
+                if (key === 'authToken') {
+                    $('#authToken').val(val);
+                }
+
+                if (key === 'messagingService') {
+                    $('#messagingService').val(val);
                 }
 
                 if (key === 'body') {
@@ -98,16 +106,18 @@ define([
 
     function save() {
 
-        var messageSubject = $('#messageSubject').val();
+        var accountSid = $('#accountSID').val();
+        var authToken = $('#authToken').val();
+        var messagingService = $('#messagingService').val();
         var body = $('#messageBody').val();
 
         payload['arguments'].execute.inArguments = [{
-            "messageSubject": messageSubject,
+            "accountSid": accountSid,
+            "authToken": authToken,
+            "messagingService": messagingService,
             "body" : body,
-            "CSTMSEQ" : "{{Event."+eventDefinitionKey+".CSTMSEQ}}",
-            "First Name" : "{{Event."+eventDefinitionKey+".FirstName}}",
-            "Last Name" : "{{Event."+eventDefinitionKey+".LastName}}", 
-            "Mobile": "{{Event."+eventDefinitionKey+".Phone}}"
+            "name" : "{{Event."+eventDefinitionKey+".Name}}", 
+            "phone": "{{Event."+eventDefinitionKey+".Phone}}"
         }];
 
         payload['metaData'].isConfigured = true;
